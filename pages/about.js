@@ -11,10 +11,10 @@ export default function Home(props) {
     data: props.data,
   });
 
-  const content = data.page.body;
+  const content = data.about.body;
   return (
     <Layout>
-      <div data-tina-field={tinaField(data.page, "body")}>
+      <div data-tina-field={tinaField(data.about, "body")}>
         <TinaMarkdown content={content} />
       </div>
     </Layout>
@@ -24,8 +24,8 @@ export default function Home(props) {
 // This is an example of a page generated with Serverside Rendering.
 // This can be switched to a static page by using getStaticProps
 export const getServerSideProps = async ({ params }) => {
-  const { data, query, variables } = await client.queries.page({
-    relativePath: `${params.slug}.mdx`,
+  const { data, query, variables } = await client.queries.about({
+    relativePath: 'about.mdx',
   });
 
   return {
